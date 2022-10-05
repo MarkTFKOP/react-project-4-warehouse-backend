@@ -1,3 +1,3 @@
-import auth from "./auth";
+import auth from "./Auth";
 
 export default { auth };

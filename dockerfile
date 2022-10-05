@@ -4,12 +4,12 @@ WORKDIR /app
 
 COPY package*.json ./
 
-RUN npm i
+RUN npm install
 
 COPY . .
 
-ENV PORT = 4000
+ENV PORT=4000
 
 EXPOSE 4000
 
-CMD ["npm",'start']
+CMD [ "npm", "start" ]

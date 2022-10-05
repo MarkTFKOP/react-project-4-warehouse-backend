@@ -1,5 +1,4 @@
 import express from "express";
-import controller from "../controller";
 const Router = express.Router();
 
 export default (app) => {
