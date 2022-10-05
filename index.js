@@ -2,12 +2,16 @@ import express from "express";
 import mongoose from "mongoose";
 // prettier-ignore
 import routes from "./routes/index";
+import dotenv from "dotenv";
+import cors from "cors";
+dotenv.config();
 const app = express();
 
 try {
+  // app.use(cors);
   app.use(express.json());
   app.use(express.urlencoded({ extended: true }));
-  app.use("/api", routes());
+  app.use("/", routes());
   // app.use("/testQueryParams", (req, res) => {
   //   try {
   //     res.status(200).send({
@@ -20,11 +24,11 @@ try {
   //     res.status(400).send(e);
   //   }
   // });
-
-  app.listen(3000, (err, data) => {
+  const port = process.env.PORT || 3000;
+  app.listen(port, (err, data) => {
     console.log(`
     ################################################
-    http://localhost:3000/
+    http://localhost:${port}/
     ################################################
     `);
   });

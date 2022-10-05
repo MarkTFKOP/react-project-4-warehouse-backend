@@ -3,10 +3,13 @@ import controller from "../controller";
 const Router = express.Router();
 
 export default (app) => {
-  app.use("/user", Router);
-  Router.get("/test", (req, res) => {
-    res.send("works");
-  });
+  app.use("/testing", Router);
+
+  // Router.get("/test", controller.auth.test1, controller.auth.test2);
+  Router.get("/test", controller.auth.test2);
+  // Router.get("/test", (req, res) => {
+  //   res.send("its working");
+  // });
   Router.post("/add", (req, res) => {
     try {
       console.log(req.body);
@@ -17,3 +20,7 @@ export default (app) => {
   });
   return Router;
 };
+
+// (req, res) => {
+//   res.send("its working");
+// }
