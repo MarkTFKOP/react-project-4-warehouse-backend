@@ -6,13 +6,8 @@ export default (app) => {
   Router.get("/test", (req, res) => {
     res.send("works");
   });
-  Router.post("/add", (req, res) => {
-    try {
-      console.log(req.body);
-      res.json(req.body);
-    } catch (e) {
-      res.status(400).json(e);
-    }
+  Router.get("/test", (req, res) => {
+    res.send("works");
   });
   return Router;
 };

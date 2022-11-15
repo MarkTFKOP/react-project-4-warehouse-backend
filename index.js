@@ -12,23 +12,16 @@ try {
   app.use(express.json());
   app.use(express.urlencoded({ extended: true }));
   app.use("/", routes());
-  // app.use("/testQueryParams", (req, res) => {
-  //   try {
-  //     res.status(200).send({
-  //       ...req.query,
-  //       Array: JSON.parse(req.query.Array),
-  //       Object: JSON.parse(req.query.Object),
-  //     });
-  //   } catch (e) {
-  //     console.log(e);
-  //     res.status(400).send(e);
-  //   }
-  // });
   const port = process.env.PORT || 3001;
+  mongoose.connect(process.env.MONGOOSE_STRING, function (err, data) {
+    if (err) return console.log(err);
+    console.log("    ------------ Database connected ----------------");
+  });
   app.listen(port, (err, data) => {
+    if (err) return console.log(err);
     console.log(`
     ################################################
-    http://localhost:${port}/
+    --------- http://localhost:${port}/ ------------
     ################################################
     `);
   });
